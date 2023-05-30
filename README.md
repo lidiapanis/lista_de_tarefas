@@ -8,5 +8,7 @@ Neste projeto você encontra: Inclusão, edição, exibição e deleção de tar
 
 Screenshots: <br><br>
 
-<img src="https://uploaddeimagens.com.br/imagens/ijwtyoE">
+<img src="https://uploaddeimagens.com.br/images/004/486/910/original/1.png?1685416304">
+<br>
+<img src="https://uploaddeimagens.com.br/images/004/486/913/full/2.png?1685416420">
 
