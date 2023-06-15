@@ -1,7 +1,7 @@
 class Task {
   String? id;
   String name;
-  String datetime;
+  DateTime datetime;
   String location;
 
   Task(
@@ -13,21 +13,25 @@ class Task {
   Task.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         name = json['name'],
-        datetime = json['datetime'],
+        datetime = DateTime.parse(json['datetime']),
         location = json['location'];
 
   Map<String, dynamic> toJson() => {
         'name': name,
-        'datetime': datetime,
+        'datetime': datetime.toIso8601String(),
         'location': location,
       };
 
   static List<Task> listFromJson(Map<String, dynamic> json) {
-    List<Task> tasks = [];
-    json.forEach((key, value) {
-      Map<String, dynamic> item = {"id": key, ...value};
-      tasks.add(Task.fromJson(item));
-    });
-    return tasks;
+    try {
+      List<Task> tasks = [];
+      json.forEach((key, value) {
+        Map<String, dynamic> item = {"id": key, ...value};
+        tasks.add(Task.fromJson(item));
+      });
+      return tasks;
+    } catch (error) {
+      return []; // Retorna uma lista vazia em caso de erro na conversão
+    }
   }
 }

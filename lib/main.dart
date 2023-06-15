@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:listatarefas/providers/task_provider.dart';
 import 'package:listatarefas/screens/task_edit_screen.dart';
 import 'package:listatarefas/screens/task_insert_screen.dart';
 import 'package:listatarefas/screens/task_list_screen.dart';
 import 'package:listatarefas/screens/task_show_screen.dart';
+import 'package:provider/provider.dart';
 import 'routes/route_paths.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class App extends StatelessWidget {
       RoutePaths.HOME: (context) => const TaskListScreen(),
       RoutePaths.TASKSHOWSCREEN: (context) => const TaskShowScreen(),
       RoutePaths.TASKINSERTSCREEN: (context) => const TaskInsertScreen(),
-      //RoutePaths.TASKEDITSCREEN: (context) => const TaskEditScreen(),
+      RoutePaths.TASKEDITSCREEN: (context) => const TaskEditScreen(),
     });
   }
 }

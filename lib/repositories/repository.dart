@@ -6,12 +6,12 @@ abstract class Repository {
 
   Repository(this._resource);
 
-  Future<http.Response> getAll() {
+  Future<http.Response> list() {
     final uri = Uri.parse("$_baseUrl/$_resource.json");
     return http.get(uri);
   }
 
-  Future<http.Response> insert(String data) {
+  Future<http.Response> insert(String data) async {
     final uri = Uri.parse("$_baseUrl/$_resource.json");
     return http.post(uri, body: data);
   }

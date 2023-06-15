@@ -10,14 +10,14 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _tasks = Provider.of<TasksProvider>(context);
+    final tasks = Provider.of<TasksProvider>(context);
 
-    List<Widget> _generateListTasks(List<Task> tasks) {
+    List<Widget> generateListTasks(List<Task> tasks) {
       return tasks.map((task) => TaskListItem(task)).toList();
     }
 
     return FutureBuilder<List<Task>>(
-      future: TaskService().getAll(),
+      future: TaskService().list(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -32,17 +32,17 @@ class TaskList extends StatelessWidget {
           if (list != null && list.isNotEmpty) {
             return Expanded(
               child: ListView(
-                children: _generateListTasks(list),
+                children: generateListTasks(list),
               ),
             );
           } else {
             return const Center(
-              child: Text("Nenhum produto cadastrado."),
+              child: Text("Nenhuma tarefa cadastrada."),
             );
           }
         } else {
           return const Center(
-            child: Text("Nenhum produto cadastrado."),
+            child: Text("Nenhuma tarefa cadastrada."),
           );
         }
       },

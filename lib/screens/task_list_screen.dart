@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:listatarefas/providers/task_provider.dart';
 import 'package:listatarefas/routes/route_paths.dart';
+import 'package:listatarefas/screens/task_insert_screen.dart';
 import 'package:provider/provider.dart';
 import '../components/task_list.dart';
 
@@ -18,7 +19,14 @@ class _TaskListScreenState extends State<TaskListScreen> {
       appBar: AppBar(
         title: const Text("Minhas Tarefas"),
         backgroundColor: Colors.black,
-        automaticallyImplyLeading: true,
+        /*actions: [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              Navigator.of(context).pushNamed(RoutePaths.TASKINSERTSCREEN);
+            },
+          ),
+        ],*/
       ),
       body: ChangeNotifierProvider(
         create: (context) => TasksProvider(),
